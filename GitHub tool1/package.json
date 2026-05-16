@@ -1,0 +1,25 @@
+{
+  "name": "git-lfs-web-helper",
+  "version": "0.1.0",
+  "private": true,
+  "description": "Browser-based Git and GitHub helper using isomorphic-git and GitHub REST APIs.",
+  "scripts": {
+    "dev": "vite",
+    "build": "tsc && vite build",
+    "preview": "vite preview"
+  },
+  "dependencies": {
+    "@isomorphic-git/lightning-fs": "^3.1.0",
+    "buffer": "^6.0.3",
+    "isomorphic-git": "^1.27.0",
+    "react": "^18.3.1",
+    "react-dom": "^18.3.1"
+  },
+  "devDependencies": {
+    "@types/react": "^18.3.4",
+    "@types/react-dom": "^18.3.0",
+    "@vitejs/plugin-react": "^4.3.1",
+    "typescript": "^5.6.2",
+    "vite": "^5.4.1"
+  }
+}
