@@ -48,7 +48,7 @@ npm run dev
 3. 勾选 `repo` 权限（完整仓库访问）
 4. 生成后复制 `ghp_xxx` 格式的 token
 5. 粘贴到网页的 Token 输入框（自动保存在浏览器）
-
+（可以记忆token，保持不要过期就行）
 ### 2. 克隆仓库
 
 - 填写仓库 URL（如 `https://github.com/owner/repo.git`）和 Token
