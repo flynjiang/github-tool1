@@ -33,11 +33,6 @@ npm run dev
 # 浏览器打开 http://localhost:5173
 ```
 
-## 在其他设备上使用
-
-将整个文件夹复制到目标设备（U盘、网盘均可），只需满足：
-- 已安装 Node.js v16+
-- 双击 `start.bat` 即可（首次会自动 `npm install`）
 
 ## 使用指南
 
@@ -143,70 +138,7 @@ npm run dev
 | `git tag -a v1.0 -m "msg"` | 在当前 commit 打标签，标记版本发布。 |
 | `git push origin --tags` | 推送所有标签到远程。 |
 
-### Git LFS 大文件
 
-| 命令 | 实际作用 |
-|------|----------|
-| `git lfs install` | 启用 LFS 支持，每个仓库执行一次。 |
-| `git lfs track "*.psd"` | 所有 `.psd` 文件走 LFS 存储。 |
-| `git lfs track "<filename>"` | 指定单个文件走 LFS。 |
-| `git lfs track` | 列出所有 LFS 追踪规则。 |
-| `git lfs ls-files` | 列出由 LFS 管理的文件。 |
-
-> **LFS 原理**：仓库中只存指针文件（~130 字节），实际内容存在 LFS 服务器，clone 时不会下载所有大文件历史。
-
-## 网络代理配置
-
-通过 Vite 开发服务器中间件代理 GitHub 请求，解决浏览器 CORS 限制。
-
-### 自动检测（推荐）
-
-启动时自动读取 Windows 注册表中的系统代理设置（`ProxyEnable` / `ProxyServer`）。如果你已经开启了 Clash、V2Ray 等代理软件，无需任何配置即可使用。
-
-页面顶部"网络状态"卡片会显示当前检测结果。
-
-### 手动配置（.env）
-
-也可以在项目根目录 `.env` 文件中手动指定：
-
-#### 模式一：直连（默认）
-
-```env
-PROXY_MODE=direct
-```
-
-适合海外用户或已有全局代理的用户。直接连接 github.com。
-
-#### 模式二：Steam++
-
-```env
-PROXY_MODE=steam++
-```
-
-使用 Steam++（Watt Toolkit）的 GitHub 加速功能，通过 127.0.0.1:443 转发。
-
-#### 模式三：自定义代理
-
-```env
-PROXY_MODE=custom
-PROXY_HOST=127.0.0.1
-PROXY_PORT=7890
-```
-
-适配任意 HTTPS 代理（Clash、V2Ray、Shadowsocks 等），填写代理监听地址和端口即可。
-
-> 修改 `.env` 后需重启开发服务器（关闭 start.bat 窗口后重新双击）。
-> 自动检测优先级高于 `.env` 配置：如果检测到系统代理，会覆盖 `.env` 中的设置。
-
-## 技术栈
-
-| 技术 | 用途 |
-|------|------|
-| React 18 + TypeScript | UI 框架 |
-| Vite 5 | 构建 + 开发服务器 + 代理 |
-| isomorphic-git | 浏览器端 Git 引擎 |
-| @isomorphic-git/lightning-fs | IndexedDB 虚拟文件系统 |
-| GitHub LFS REST API | 大文件分片上传 |
 
 ## 注意事项
 
@@ -216,6 +148,4 @@ PROXY_PORT=7890
 - 建议使用 Chrome / Edge
 - 需要 Node.js 运行开发服务器（提供代理功能）
 
-## License
 
-MIT
